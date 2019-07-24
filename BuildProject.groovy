@@ -139,7 +139,7 @@ def SSDir = env.SSDir
 
 String QCVSSFolder= env.QCVSSFolder
 
-stage('QCommGenera VSS Folder')
+stage(QCVSSProjectFolder + ' VSS Folder')
     { 
         bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
