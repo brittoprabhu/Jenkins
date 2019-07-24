@@ -139,7 +139,7 @@ def SSDir = env.SSDir
 
 String QCVSSFolder= env.QCVSSFolder
 
-stage(QCVSSProjectFolder + ' VSS Folder')
+stage(QCVSSProjectFolder + ' Get Source from VSS')
     { 
         bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
