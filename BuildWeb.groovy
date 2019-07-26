@@ -143,7 +143,7 @@ stage('Get Code from VSS')
       
 		bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
-	 rd /s ''' + QCVSSProjectFolder + '''  
+	 rd /s /q ''' + QCVSSProjectFolder + '''  
          SET SSDIR='''  + SSDir   + '''
         "'''+ VSSPath + ''' CP "''' + QCVSSFolder + '//'+ QCVSSProjectFolder  + '''"''' +  '''
         "'''+     VSSPath + ''' Get * -R -W -I-Y" '''
