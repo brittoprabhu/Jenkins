@@ -138,7 +138,7 @@ def VSSPath = env.VSSPath
 def SSDir = env.SSDir
 
 String QCVSSFolder= env.QCVSSFolder
-string Precompilefolder
+String Precompilefolder =""
 stage('Get Code from VSS')
     { 
       
