@@ -144,7 +144,7 @@ stage('Get Code from VSS')
       
 	 
 	
-	 if (CleanBuild =="Yes")
+	 if (CleanBuild =="No")
 	    {
 		Precompilefolder = "\\PrecompileFolder"  
 	    }
