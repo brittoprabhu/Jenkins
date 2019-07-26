@@ -142,7 +142,7 @@ string Precompilefolder = "\\PrecompileFolder"
 stage('Get Code from VSS')
     { 
       
-	if CleanBuild =="Yes"
+	if (CleanBuild =="Yes")
 	    {
 	    bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
