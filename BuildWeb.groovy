@@ -132,18 +132,28 @@ def QCVSSWorkFolder=env.QCVSSWorkFolder
 
 def QCVSSProjectFolder= "${params.Project}"
 //def QCVSSProjectFolder = item.lastBuild.getEnvironment(null).get('Project')
+def CleanBuild= "${params.CleanBuild}"
 
 def VSSPath = env.VSSPath
 def SSDir = env.SSDir
 
 String QCVSSFolder= env.QCVSSFolder
-
+string Precompilefolder = "\PrecompileFolder"
 stage('Get Code from VSS')
     { 
       
-		bat ''' d:
+	if CleanBuild =="Yes"
+	    {
+	    bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
 	 rd /s /q ''' + QCVSSProjectFolder + '''  
+	 }
+	 else
+	 {
+	    bat ''' d:
+         cd ''' + QCVSSWorkFolder + '''
+	 rd /s /q ''' + QCVSSProjectFolder +  Precompilefolder '''  
+	 }
          SET SSDIR='''  + SSDir   + '''
         "'''+ VSSPath + ''' CP "''' + QCVSSFolder + '//'+ QCVSSProjectFolder  + '''"''' +  '''
         "'''+     VSSPath + ''' Get * -R -W -I-Y" '''
