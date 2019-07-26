@@ -138,22 +138,25 @@ def VSSPath = env.VSSPath
 def SSDir = env.SSDir
 
 String QCVSSFolder= env.QCVSSFolder
-string Precompilefolder = "\\PrecompileFolder"
+string Precompilefolder
 stage('Get Code from VSS')
     { 
       
-	if (CleanBuild =="Yes")
+	 
+	
+	 if (CleanBuild =="Yes")
 	    {
-	    bat ''' d:
+		Precompilefolder = "\\PrecompileFolder"  
+	    }
+	  
+	    
+/*	    bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
-	 rd /s /q ''' + QCVSSProjectFolder + '''  
-	 }
-	 else
-	 {
-	    bat ''' d:
+	 rd /s /q ''' + QCVSSProjectFolder + '''  */
+	  bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
-	 rd /s /q ''' + QCVSSProjectFolder +  Precompilefolder '''  
-	 }
+	 rd /s /q ''' + QCVSSProjectFolder+Precompilefolder + ''' 
+	 
          SET SSDIR='''  + SSDir   + '''
         "'''+ VSSPath + ''' CP "''' + QCVSSFolder + '//'+ QCVSSProjectFolder  + '''"''' +  '''
         "'''+     VSSPath + ''' Get * -R -W -I-Y" '''
