@@ -142,7 +142,7 @@ String Precompilefolder =""
 stage('Get Code from VSS')
     { 
       
-	 
+	print 'CleanBuild ' + CleanBuild 
 	
 	 if (CleanBuild =="No")
 	    {
