@@ -144,8 +144,10 @@ stage(QCVSSProjectFolder + ' Get Source from VSS')
         bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
         SET SSDIR='''  + SSDir   + '''
-        "'''+ VSSPath + ''' CP ''' + QCVSSFolder + '//'+ QCVSSProjectFolder + '''
+        "'''+ VSSPath + ''' CP "''' + QCVSSFolder + '//'+ QCVSSProjectFolder  + '''"''' + '''
         "'''+     VSSPath + ''' Get * -R -W -I-Y" '''
+	    
+	 
       
      } 
      stage('Compile Project and Copy DLLS')
