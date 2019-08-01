@@ -155,7 +155,7 @@ stage('Get Code from VSS')
 	 rd /s /q "''' + QCVSSProjectFolder + '''"  */
 	  bat ''' d:
          cd ''' + QCVSSWorkFolder + '''
-	 rd /s /q ''' + QCVSSProjectFolder+Precompilefolder + ''' 
+	 rd /s /q "''' + QCVSSProjectFolder+Precompilefolder + '''"''' + ''' 
 	 
          SET SSDIR='''  + SSDir   + '''
         "'''+ VSSPath + ''' CP "''' + QCVSSFolder + '//'+ QCVSSProjectFolder  + '''"''' +  '''
