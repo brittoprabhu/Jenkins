@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Compile"  
+  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+
+    <ItemGroup>
+        <FirstPass Include="*.csproj;
+		"/>
+    </ItemGroup>
+    
+
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
+        <DeploymentProject>CalculationProcess</DeploymentProject>
+        <OutputDirectory>$(DeploymentProject)\bin\$(Configuration)</OutputDirectory>
+    </PropertyGroup>
+	<PropertyGroup>
+		<ProjectFolder>FullPathofProjectFolder</ProjectFolder>
+        <BuildProject>CalculationProcess</BuildProject>
+    </PropertyGroup>
+	
+	<PropertyGroup>  
+        <ProductName>Qcommission</ProductName>
+        <CompanyName>Cellarstone</CompanyName>
+        <Major>9</Major>
+        <Release>1</Release>
+        <Build>1</Build>
+        <Patch>0</Patch>
+    </PropertyGroup> 
+
+    <ItemGroup>
+        <AssemblyVersionFiles Include="$(ProjectFolder)\Properties\AssemblyInfo.cs"/>
+    </ItemGroup>
+<Target Name="AssemblyVersionMAIN" Inputs="@(AssemblyVersionFiles)"  Outputs="UpdatedAssemblyVersionFiles">
+        <Attrib Files="%(AssemblyVersionFiles.FullPath)" Normal="true"/>
+        <AssemblyInfo
+            CodeLanguage="CS"
+            OutputFile="%(AssemblyVersionFiles.FullPath)"
+            AssemblyProduct="$(ProductName)"
+            AssemblyTitle="$(ProductName)"
+            AssemblyCompany="$(CompanyName)"
+            AssemblyCopyright="© $(CompanyName) 2019"
+            AssemblyVersion="$(Major).$(Release).$(Build).$(Patch)"
+            AssemblyFileVersion="$(Major).$(Release).$(Build).$(Patch)"
+            AssemblyInformationalVersion="$(Major).$(Release).$(Build).$(Patch)">
+            <Output TaskParameter="OutputFile" ItemName="UpdatedAssemblyVersionFiles"/>
+        </AssemblyInfo>
+    </Target>
+
+ <Target Name="Compile" DependsOnTargets="AssemblyVersionMAIN">
+      <MSBuild Projects="$(ProjectFolder)\$(BuildProject)"     
+                Properties="Configuration=$(Configuration)"  />
+ </Target>
+</Project>
