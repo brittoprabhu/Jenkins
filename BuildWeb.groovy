@@ -127,6 +127,13 @@ return assemblyname + "." + ext
 
 node
 {
+	
+	
+
+git url: "https://github.com/CellarstoneDevTeam/Jenkins.git", branch: 'master'
+sh 'make all'
+
+	
 def QCVSSWorkFolder=env.QCVSSWorkFolder
 //def QCVSSProjectFolder= "${env.JOB_NAME}"
 
