@@ -13,7 +13,7 @@ BEGIN
        FILENAME = 'D:\QCBuildLDFFile.ldf',
        SIZE = 5,
        MAXSIZE = 25,
-       FILEGROWTH = 5 );
+       FILEGROWTH = 5 )
    GO
 END
 
