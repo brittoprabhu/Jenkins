@@ -4,7 +4,10 @@
     <!-- Property Group -->
     <PropertyGroup>
         <TPath>C:\Program Files\MSBuildExtensionPack\4.0\MSBuild.ExtensionPack.tasks</TPath>
-        <ftpHost>10.199.4.19</ftpHost>
+        <FTPHost>10.199.4.19</FTPHost>
+	<FTPUserName>Cellarstone</FTPUserName>
+	<FTPPassword>Cellarstone1</FTPPassword>
+	    
     </PropertyGroup>
     <PropertyGroup>
         <Datasource>10.199.4.19</Datasource>
