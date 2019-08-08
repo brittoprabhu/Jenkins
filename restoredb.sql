@@ -1,4 +1,4 @@
-select $(FTPPath)
+select '$(FTPPath)'
 /*
 IF  NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'QCBuild')
 BEGIN
