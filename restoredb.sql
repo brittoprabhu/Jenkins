@@ -1,5 +1,4 @@
-select '$(FTPPath)'
-/*
+
 IF  NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'QCBuild')
 BEGIN
     
@@ -25,7 +24,7 @@ ROLLBACK IMMEDIATE
 
 ----Restore Database
 RESTORE DATABASE QCBuild
-FROM DISK = $(FTPPath)
+FROM DISK = '$(FTPPath)'
 WITH MOVE 'QCBuildMDF' TO 'D:\QCBuildMDFFile.mdf',
 MOVE 'QCBuildLDF' TO 'D:\QCBuildLDFFile.ldf'
  
@@ -35,4 +34,4 @@ If error occurs please execute following command it will convert
 database in multi user.*/
 ALTER DATABASE QCBuild SET MULTI_USER
 GO
-*/
+
