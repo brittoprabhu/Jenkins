@@ -158,14 +158,15 @@
                 Recursive="true" />
 	</Target>
     <!-- Step 5 Completing the process and display the URL-->
+    <!-- Step 6 Restore The DB-->
     <Target Name="CompleteBuild" DependsOnTargets="FTPUpload">
         <Message Text="QCommission Build Proces Completed" />	
-        <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="true" Files="@(Files)" ConnectionString="Data Source=10.199.4.19;Initial Catalog=;Uid=qcadmin;Pwd=QCADMIN;"/>
+        <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=10.199.4.19;Initial Catalog=;Uid=qcadmin;Pwd=QCADMIN;"/>
     </Target>
     <Target Name="DeletePrecompiledWeb">
         <RemoveDir Directories="$(ProjectFolder)\PrecompileFolder" />
     </Target>
-    <!-- Step 6 Restore The DB-->
+    
   
 
 </Project>
