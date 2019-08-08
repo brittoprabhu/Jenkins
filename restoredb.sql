@@ -14,7 +14,7 @@ BEGIN
        SIZE = 5,
        MAXSIZE = 25,
        FILEGROWTH = 5 )
-   GO
+   
 END
 
 ALTER DATABASE QCBuild
