@@ -1,3 +1,5 @@
+select $(FTPPath)
+/*
 IF  NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'QCBuild')
 BEGIN
     
@@ -20,7 +22,7 @@ END
 ALTER DATABASE QCBuild
 SET SINGLE_USER WITH
 ROLLBACK IMMEDIATE
-select $(FTPPath)
+
 ----Restore Database
 RESTORE DATABASE QCBuild
 FROM DISK = $(FTPPath)
@@ -33,3 +35,4 @@ If error occurs please execute following command it will convert
 database in multi user.*/
 ALTER DATABASE QCBuild SET MULTI_USER
 GO
+*/
