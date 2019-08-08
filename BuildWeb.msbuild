@@ -190,7 +190,7 @@
 	    <Message Text="QCOMM DB Restore" />	
 	    <Message Text ="$(FTPFolder)" />
 	  <!--    <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);Variables=@(FTPPath) "/> -->
-	    <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(DataSource)" Database="master" LogOn ="$(UserName)" Password= "$(Password)" InputFiles="@(Files)" Variables="@(Variable)" />
+	    <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(DataSource)" Database="master" LogOn ="$(UserName)" Password= "$(Password)" InputFiles="@(Files)" Variables=@(Variable) />
     </Target>
     <Target Name="DeletePrecompiledWeb">
         <RemoveDir Directories="$(ProjectFolder)\PrecompileFolder" />
