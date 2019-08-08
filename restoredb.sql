@@ -1,3 +1,22 @@
+IF  NOT EXISTS (SELECT * FROM sys.databases WHERE name = N'QCBuild')
+BEGIN
+    
+   CREATE DATABASE QCBuild
+   ON
+   ( NAME = QCBuildMDF,  
+       FILENAME = 'D:\QCBuildMDFFile.mdf',
+       SIZE = 10,
+       MAXSIZE = 50,
+       FILEGROWTH = 5 )  
+   LOG ON
+   ( NAME = QCBuildLDF,  
+       FILENAME = 'D:\QCBuildLDFFile.ldf',
+       SIZE = 5,
+       MAXSIZE = 25,
+       FILEGROWTH = 5 );
+   GO
+END
+
 ALTER DATABASE QCBuild
 SET SINGLE_USER WITH
 ROLLBACK IMMEDIATE
