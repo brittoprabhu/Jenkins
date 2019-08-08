@@ -6,7 +6,8 @@ node
     
         
           def MSBuildPath = env.MSBuildPath
-          bat '''
-          "'''+ MSBuildPath +  '''" ''' +  buildscriptPath +'\\BuildWeb.msbuild'  +  ''' /t:''' + Target  
+          def QCVSSWorkFolder = env.QCVSSWorkFolder
+          echo '''
+          "'''+ MSBuildPath +  '''" ''' +  QCVSSWorkFolder.replace("\\\\", "\\") + "\\BuildScript" +'\\BuildWeb.msbuild'  +  ''' /t:''' + Target  
     }
 }
