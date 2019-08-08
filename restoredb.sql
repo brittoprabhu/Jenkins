@@ -21,10 +21,10 @@ END
 ALTER DATABASE QCBuild
 SET SINGLE_USER WITH
 ROLLBACK IMMEDIATE
-
+--$(FTPPath)
 ----Restore Database
 RESTORE DATABASE QCBuild
-FROM DISK = '$(FTPPath)'
+FROM DISK = 'd:\t.bak'
 WITH MOVE 'QCBuildMDF' TO 'D:\QCBuildMDFFile.mdf',
 MOVE 'QCBuildLDF' TO 'D:\QCBuildLDFFile.ldf'
  
