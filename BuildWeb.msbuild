@@ -169,7 +169,7 @@
         <Message Text="QCommission Build Proces Completed" />	
         <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=10.199.4.19;Initial Catalog=;Uid=qcadmin;Pwd=QCADMIN;"/>
     </Target>
-    <Target Name="RestoreDB" DependsOnTargets="FTPUpload">
+    <Target Name="RestoreDB">
 	    <Message Text="QCOMM DB Restore" />	
 	    <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);"/>
     </Target>
