@@ -40,7 +40,7 @@
         <AssemblyVersionFiles Include="$(ProjectFolder)\Properties\AssemblyInfo.cs"/>
     </ItemGroup>
     <ItemGroup>
-        <Files Include="$(MSBuildProjectDirectory)\BuildScript\*.SQL"/>
+        <Files Include="$(MSBuildProjectDirectory)\*.SQL"/>
     </ItemGroup>
     <!-- Specify Targets -->
     <!-- Step 1  Compile Web Application-->
