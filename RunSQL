@@ -1,9 +1,12 @@
 node
 {
-    stage('QCommGenera VSS Folder')
+    def Target= "${params.Target}"
+    stage('Restore QCommDB')
     { 
+    
+        
           def MSBuildPath = env.MSBuildPath
           bat '''
-          "'''+ MSBuildPath +  '''" ''' +  buildscriptPath +'\\BuildWeb.msbuild'  +  ''' /t:Restoredb ''' 
+          "'''+ MSBuildPath +  '''" ''' +  buildscriptPath +'\\BuildWeb.msbuild'  +  ''' /t:''' + Target  
     }
 }
