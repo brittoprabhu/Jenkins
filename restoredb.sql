@@ -23,7 +23,7 @@ ROLLBACK IMMEDIATE
  
 ----Restore Database
 RESTORE DATABASE QCBuild
-FROM DISK = 'D:\BackUpYourBaackUpFile.bak'
+FROM DISK = 'D:\QCOMM.bak'
 WITH MOVE 'QCBuildMDF' TO 'D:\QCBuildMDFFile.mdf',
 MOVE 'QCBuildLDF' TO 'D:\QCBuildLDFFile.ldf'
  
