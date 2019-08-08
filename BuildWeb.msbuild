@@ -7,6 +7,12 @@
         <ftpHost>10.199.4.19</ftpHost>
     </PropertyGroup>
     <PropertyGroup>
+        <Datasource>10.199.4.19</Datasource>
+        <UserName>qcadmin</UserName>
+	<Password>QCADMIN</Password>
+    </PropertyGroup>
+	
+    <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Release</Configuration>
         <DeploymentProject>CalculationProcess</DeploymentProject>
         <OutputDirectory>$(DeploymentProject)\bin\$(Configuration)</OutputDirectory>
@@ -162,6 +168,10 @@
     <Target Name="CompleteBuild" DependsOnTargets="FTPUpload">
         <Message Text="QCommission Build Proces Completed" />	
         <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=10.199.4.19;Initial Catalog=;Uid=qcadmin;Pwd=QCADMIN;"/>
+    </Target>
+    <Target Name="RestoreDB" DependsOnTargets="FTPUpload">
+	    <Message Text="QCOMM DB Restore" />	
+	    <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);"/>
     </Target>
     <Target Name="DeletePrecompiledWeb">
         <RemoveDir Directories="$(ProjectFolder)\PrecompileFolder" />
