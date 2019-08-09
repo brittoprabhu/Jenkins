@@ -8,6 +8,7 @@
 	<FTPUserName>Cellarstone</FTPUserName>
 	<FTPPassword>Cellarstone1</FTPPassword>
 	<FTPFolder>FTPDevServer</FTPFolder> 
+	 
     </PropertyGroup>
     <PropertyGroup>
         <Datasource>10.199.4.19</Datasource>
@@ -52,8 +53,12 @@
         <Files Include="$(MSBuildProjectDirectory)\*.SQL"/>
     </ItemGroup>
     <ItemGroup>
-        <Variable Include="FTPPath">
+      <!--  <Variable Include="FTPPath">
             <Value>"$(FTPFolder)"</Value>
+        </Variable>-->
+	<Variable Include=”true”>
+		<name>@FTPPath</name>
+		<value>$(FTPFolder)</value>
         </Variable>
     </ItemGroup>	
     <!-- Specify Targets -->
@@ -189,8 +194,8 @@
     <Target Name="RestoreDB">
 	    <Message Text="QCOMM DB Restore" />	
 	    <Message Text ="$(FTPFolder)" />
-	  <!--    <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);Variables=@(FTPPath) "/> -->
-	    <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(DataSource)" Database="master" LogOn ="$(UserName)" Password= "$(Password)" InputFiles="@(Files)" variables=""@(Variable)"" />
+	   <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);Variables=@(FTPPath) "/> 
+	  <!--     <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(DataSource)" Database="master" LogOn ="$(UserName)" Password= "$(Password)" InputFiles="@(Files)" variables=""@(Variable)"" />-->
     </Target>
     <Target Name="DeletePrecompiledWeb">
         <RemoveDir Directories="$(ProjectFolder)\PrecompileFolder" />
