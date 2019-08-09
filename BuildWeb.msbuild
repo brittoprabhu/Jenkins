@@ -56,7 +56,7 @@
       <!--  <Variable Include="FTPPath">
             <Value>"$(FTPFolder)"</Value>
         </Variable>-->
-	<Variable Include=”true”>
+	<Variable Include="FTPPath”>
 		<name>@FTPPath</name>
 		<value>$(FTPFolder)</value>
         </Variable>
