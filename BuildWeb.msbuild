@@ -53,9 +53,6 @@
         <Files Include="$(MSBuildProjectDirectory)\*.SQL"/>
     </ItemGroup>
     <ItemGroup>
-      <!--  <Variable Include="FTPPath">
-            <Value>"$(FTPFolder)"</Value>
-        </Variable>-->
 	<Variable Include="FTPPath”>
 		<name>@FTPPath</name>
 		<value>$(FTPFolder)</value>
