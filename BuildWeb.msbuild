@@ -193,7 +193,7 @@
 	    <Message Text ="$(FTPFolder)" />
 	   <!--<MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Retry="true" UseTransaction="false" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password);Parameters=@(FTPPath) "/> -->
 	  <!--     <MSBuild.ExtensionPack.SqlServer.SqlCmd TaskAction="Execute" Server="$(DataSource)" Database="master" LogOn ="$(UserName)" Password= "$(Password)" InputFiles="@(Files)" variables=""@(Variable)"" />-->
-   	   <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password)" Parameters="@FTPPath" />	    
+   	   <MSBuild.ExtensionPack.SqlServer.SqlExecute TaskAction="Execute" Files="@(Files)" ConnectionString="Data Source=$(DataSource);Initial Catalog=;Uid=$(UserName);Pwd=$(Password)" Parameters="@Variable" />	    
     </Target>
     <Target Name="DeletePrecompiledWeb">
         <RemoveDir Directories="$(ProjectFolder)\PrecompileFolder" />
